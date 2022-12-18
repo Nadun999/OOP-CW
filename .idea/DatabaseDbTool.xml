@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseDbTool">
+    <option name="sources">
+      <map>
+        <entry key="localhost">
+          <value>
+            <DataConfigSourceDto>
+              <option name="comment" value="" />
+              <option name="dataBaseType" value="MySql" />
+              <option name="database" value="OOD" />
+              <option name="databaseName" value="localhost" />
+              <option name="databaseSslConfig">
+                <DatabaseSslConfig>
+                  <option name="caFile" value="" />
+                  <option name="clientCertificateFile" value="" />
+                  <option name="clientKeyFile" value="" />
+                  <option name="clientKeyPassword" value="" />
+                  <option name="sslMode" value="REQUIRE" />
+                </DatabaseSslConfig>
+              </option>
+              <option name="databaseVersion">
+                <NameVersion>
+                  <option name="majorVersion" value="8" />
+                  <option name="name" value="MySQL" />
+                  <option name="version" value="8.0.31" />
+                </NameVersion>
+              </option>
+              <option name="dbFile" value="" />
+              <option name="driverCombos" value="thin" />
+              <option name="driverType" value="MySQL" />
+              <option name="host" value="localhost" />
+              <option name="jarUrl" value="$APPLICATION_CONFIG_DIR$/jdbc-drivers/MySQL ConnectorJ/8.0.21/mysql-connector-java-8.0.21.jar" />
+              <option name="myUniqueId" value="32b5a72d-a726-40e7-8054-0b3656046786" />
+              <option name="port" value="3306" />
+              <option name="properties">
+                <map />
+              </option>
+              <option name="schemaSourceDto">
+                <SchemaSourceDto>
+                  <option name="name" value="OOD" />
+                  <option name="tableSources">
+                    <list>
+                      <TableSourceDto>
+                        <option name="columns">
+                          <list>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="vehicle_type" />
+                              <option name="columnType" value="varchar(50)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="1" />
+                              <option name="size" value="50" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="fuel_type" />
+                              <option name="columnType" value="varchar(45)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="2" />
+                              <option name="size" value="45" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="qr_no" />
+                              <option name="columnType" value="varchar(45)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="3" />
+                              <option name="size" value="45" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="fuel_amount" />
+                              <option name="columnType" value="int" />
+                              <option name="dataType" value="4" />
+                              <option name="dataTypeStr" value="INT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="4" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="payment_method" />
+                              <option name="columnType" value="varchar(45)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="5" />
+                              <option name="size" value="45" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="amount" />
+                              <option name="columnType" value="int" />
+                              <option name="dataType" value="4" />
+                              <option name="dataTypeStr" value="INT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="6" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="ticket_id" />
+                              <option name="columnType" value="varchar(45)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="ordinalPosition" value="7" />
+                              <option name="pk" value="true" />
+                              <option name="size" value="45" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="customer_id" />
+                              <option name="columnType" value="varchar(45)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="ordinalPosition" value="8" />
+                              <option name="pk" value="true" />
+                              <option name="size" value="45" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="date_time" />
+                              <option name="columnType" value="varchar(45)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="9" />
+                              <option name="size" value="45" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="remaining_repositories" />
+                              <option name="columnType" value="varchar(45)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="10" />
+                              <option name="size" value="45" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="remaning_petrol_stock" />
+                              <option name="columnType" value="varchar(45)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="11" />
+                              <option name="size" value="45" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="collationName" value="utf8mb4_0900_ai_ci" />
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="remaing_diesel_stock" />
+                              <option name="columnType" value="varchar(45)" />
+                              <option name="dataType" value="12" />
+                              <option name="dataTypeStr" value="VARCHAR" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="12" />
+                              <option name="size" value="45" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="VARCHAR" />
+                            </ColumnSourceDto>
+                            <ColumnSourceDto>
+                              <option name="columnComment" value="" />
+                              <option name="columnName" value="diesel_fuel_amount" />
+                              <option name="columnType" value="int" />
+                              <option name="dataType" value="4" />
+                              <option name="dataTypeStr" value="INT" />
+                              <option name="extra" value="" />
+                              <option name="nullable" value="true" />
+                              <option name="ordinalPosition" value="13" />
+                              <option name="tableName" value="customer" />
+                              <option name="typeName" value="INTEGER" />
+                            </ColumnSourceDto>
+                          </list>
+                        </option>
+                        <option name="databaseType" value="MySql" />
+                        <option name="keys">
+                          <list>
+                            <ColumnIndexInfo>
+                              <option name="PK" value="true" />
+                              <option name="collation" value="A" />
+                              <option name="columnName" value="ticket_id" />
+                              <option name="indexComment" value="" />
+                              <option name="indexName" value="PRIMARY" />
+                              <option name="indexType" value="BTREE" />
+                              <option name="tableName" value="customer" />
+                            </ColumnIndexInfo>
+                            <ColumnIndexInfo>
+                              <option name="PK" value="true" />
+                              <option name="collation" value="A" />
+                              <option name="columnName" value="customer_id" />
+                              <option name="indexComment" value="" />
+                              <option name="indexName" value="PRIMARY" />
+                              <option name="indexType" value="BTREE" />
+                              <option name="tableName" value="customer" />
+                            </ColumnIndexInfo>
+                          </list>
+                        </option>
+                        <option name="schema" value="OOD" />
+                        <option name="tableName" value="customer" />
+                        <option name="tableRemark" value="" />
+                        <option name="tableType" value="BASE TABLE" />
+                      </TableSourceDto>
+                    </list>
+                  </option>
+                </SchemaSourceDto>
+              </option>
+              <option name="sid" value="" />
+              <option name="url" value="jdbc:mysql://localhost:3306/OOD?useSSL=false&amp;serverTimezone=Asia/Colombo" />
+              <option name="userName" value="root" />
+              <option name="driverVersion">
+                <NameVersion>
+                  <option name="majorVersion" value="8" />
+                  <option name="name" value="MySQL Connector/J" />
+                  <option name="version" value="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" />
+                </NameVersion>
+              </option>
+            </DataConfigSourceDto>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

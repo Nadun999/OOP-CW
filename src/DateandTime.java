@@ -1,4 +1,4 @@
-public class DateAndTime {
+public class DateandTime {
     // getters and setters
     public String getDate() {
         return date;
@@ -16,7 +16,7 @@ public class DateAndTime {
         this.time = time;
     }
 
-    public DateAndTime() {
+    public DateandTime() {
         date = "07/12/2022";
     }
 

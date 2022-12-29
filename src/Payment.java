@@ -24,10 +24,10 @@ public class Payment {
     public void PaymentforOctane() throws ClassNotFoundException, SQLException {
         double totalPayment = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/OOD","root", "Nadun@123");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
         Statement stmt=conn.createStatement();
 
-        String mvmt = "SELECT amount FROM customer WHERE fuel_type = 'petrol'";
+        String mvmt = "SELECT amount FROM customer WHERE f_type = 'petrol'";
         ResultSet rs = stmt.executeQuery(mvmt);
         while (rs.next()) {
             totalPayment = totalPayment + rs.getInt("amount");
@@ -38,10 +38,10 @@ public class Payment {
     public void paymentForDiesel() throws ClassNotFoundException, SQLException {
         double totalPayment = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/OOD","root", "Nadun@123");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
         Statement stmt=conn.createStatement();
 
-        String mvmt = "SELECT amount FROM customer WHERE fuel_type = 'diesel'";
+        String mvmt = "SELECT amount FROM customer WHERE f_type = 'diesel'";
         ResultSet rs = stmt.executeQuery(mvmt);
         while (rs.next()) {
             totalPayment = totalPayment + rs.getInt("amount");

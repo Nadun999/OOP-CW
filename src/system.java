@@ -14,26 +14,26 @@ public class system {
 
     public void totalVehicles() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/OOD","root", "Nadun@123");
-        Statement statement = connection.createStatement();
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
+        Statement stmt=conn.createStatement();
 
-        String query1 = "select count(*) from customer WHERE fuel_type = 'petrol'";
-        ResultSet resultSet = statement.executeQuery(query1);
-        resultSet.next();
-        int rows = resultSet.getInt(1);
-        System.out.println("total vehicles served in petrol repositories : " + rows);
+        String query2 = "select count(*) from customer WHERE f_type = 'petrol'";
+        ResultSet rs0 = stmt.executeQuery(query2);
+        rs0.next();
+        int raws = rs0.getInt(1);
+        System.out.println("total vehicles served in petrol repositories : " + raws);
     }
 
     public void totalVehiclesDiesel() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/OOD","root", "Nadun@123");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
         Statement stmt=conn.createStatement();
 
-        String query2 = "select count(*) from customer WHERE fuel_type = 'diesel'";
-        ResultSet resultSet = stmt.executeQuery(query2);
-        resultSet.next();
-        int rows = resultSet.getInt(1);
-        System.out.println("total vehicles served in diesel repositories : " + rows);
+        String query2 = "select count(*) from customer WHERE f_type = 'diesel'";
+        ResultSet rs0 = stmt.executeQuery(query2);
+        rs0.next();
+        int raws = rs0.getInt(1);
+        System.out.println("total vehicles served in diesel repositories : " + raws);
     }
 
     public void largeAmount() throws ClassNotFoundException, SQLException {
@@ -42,25 +42,25 @@ public class system {
         ArrayList<Integer> amounts = new ArrayList();
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/OOD","root", "Nadun@123");
-        Statement statement=connection.createStatement();
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
+        Statement stmt=conn.createStatement();
 
-        String test = "SELECT fuel_amount FROM customer";
-        ResultSet resultSet = statement.executeQuery(test);
-        while (resultSet.next()) {
-            amount = resultSet.getInt("fuel_amount");
+        String mvmt = "SELECT f_amount FROM customer";
+        ResultSet rs = stmt.executeQuery(mvmt);
+        while (rs.next()) {
+            amount = rs.getInt("f_amount");
             amounts.add(amount);
         }
         int maxVal = Collections.max(amounts);
         int indexOfMax = amounts.indexOf(maxVal);
 
-        Statement statement1 = connection.createStatement ();
-        statement1.executeQuery ("SELECT qr_no FROM customer");
-        ResultSet resultSet1 = statement1.getResultSet ();
+        Statement s = conn.createStatement ();
+        s.executeQuery ("SELECT qr_no FROM customer");
+        ResultSet rs2 = s.getResultSet ();
 
         for (int i = 0; i < indexOfMax + 1; i++){
-            resultSet1.next();
-            qrLarge = resultSet1.getString("qr_no");
+            rs2.next();
+            qrLarge = rs2.getString("qr_no");
         }
         System.out.println("QR number of largest fuel pumped vehicle is : " + qrLarge);
     }
@@ -71,25 +71,25 @@ public class system {
         ArrayList<Integer> amounts = new ArrayList();
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/OOD","root", "Nadun@123");
-        Statement statement=connection.createStatement();
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
+        Statement stmt=conn.createStatement();
 
-        String test = "SELECT diesel_fuel_amount FROM customer";
-        ResultSet resultSet = statement.executeQuery(test);
-        while (resultSet.next()) {
-            amount = resultSet.getInt("diesel_fuel_amount");
+        String mvmt = "SELECT diesel_amount FROM customer";
+        ResultSet rs = stmt.executeQuery(mvmt);
+        while (rs.next()) {
+            amount = rs.getInt("diesel_amount");
             amounts.add(amount);
         }
         int maxVal = Collections.max(amounts);
         int indexOfMax = amounts.indexOf(maxVal);
 
-        Statement statement1 = connection.createStatement ();
-        statement1.executeQuery ("SELECT qr_no FROM customer");
-        ResultSet resultSet1 = statement1.getResultSet ();
+        Statement s = conn.createStatement ();
+        s.executeQuery ("SELECT qr_no FROM customer");
+        ResultSet rs2 = s.getResultSet ();
 
         for (int i = 0; i < indexOfMax + 1; i++){
-            resultSet1.next();
-            qrLarge = resultSet1.getString("qr_no");
+            rs2.next();
+            qrLarge = rs2.getString("qr_no");
         }
         System.out.println("QR number of largest fuel pumped vehicle is : " + qrLarge);
     }
@@ -98,14 +98,14 @@ public class system {
         int remainingStock = 0;
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/OOD","root", "Nadun@123");
-        Statement statement=connection.createStatement();
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
+        Statement stmt=conn.createStatement();
 
-        String test = "SELECT remaining_repositories FROM customer WHERE fuel_type = 'petrol'";
-        ResultSet resultSet = statement.executeQuery(test);
-        while (resultSet.next()) {
-            if (resultSet.isLast()){
-                remainingStock = resultSet.getInt("remaining_repositories");
+        String mvmt = "SELECT remaining_repos FROM customer WHERE f_type = 'petrol'";
+        ResultSet rs = stmt.executeQuery(mvmt);
+        while (rs.next()) {
+            if (rs.isLast()){
+                remainingStock = rs.getInt("remaining_repos");
                 System.out.println("Remaining stock for petrol is : " + remainingStock);
             }
         }
@@ -115,14 +115,14 @@ public class system {
         int remainingStock = 0;
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/OOD","root", "Nadun@123");
-        Statement statement=connection.createStatement();
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
+        Statement stmt=conn.createStatement();
 
-        String test = "SELECT remaing_diesel_stock FROM customer WHERE fuel_type = 'diesel'";
-        ResultSet resultSet = statement.executeQuery(test);
-        while (resultSet.next()) {
-            if (resultSet.isLast()){
-                remainingStock = resultSet.getInt("remaing_diesel_stock");
+        String mvmt = "SELECT remaining_diesel_repos FROM customer WHERE f_type = 'diesel'";
+        ResultSet rs = stmt.executeQuery(mvmt);
+        while (rs.next()) {
+            if (rs.isLast()){
+                remainingStock = rs.getInt("remaining_diesel_repos");
                 System.out.println("Remaining stock for diesel is : " + remainingStock);
             }
         }
@@ -170,4 +170,3 @@ public class system {
         return (this.ticketArrayList.remove(t));
     }
 }
-

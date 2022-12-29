@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Repository {
     private double remainingStock;
-    private ArrayList<DateAndTime> dateandTimeArrayList = new ArrayList<>();
+    private ArrayList<DateandTime> dateandTimeArrayList = new ArrayList<>();
 
     public Repository() {
         // constructor
@@ -18,21 +18,20 @@ public class Repository {
         this.remainingStock = remainingStock;
     }
 
-    public ArrayList<DateAndTime> getDateandTimeArrayList() {
+    public ArrayList<DateandTime> getDateandTimeArrayList() {
         return dateandTimeArrayList;
     }
 
-    public void setDateandTimeArrayList(ArrayList<DateAndTime> dateandTimeArrayList) {
+    public void setDateandTimeArrayList(ArrayList<DateandTime> dateandTimeArrayList) {
         this.dateandTimeArrayList = dateandTimeArrayList;
     }
 
     // add and remove methods for the above arraylist
-    public boolean addDateandTime(DateAndTime d){
+    public boolean addDateandTime(DateandTime d){
         return (this.dateandTimeArrayList.add(d));
     }
 
-    public boolean removeDateandTime(DateAndTime d){
+    public boolean removeDateandTime(DateandTime d){
         return (this.dateandTimeArrayList.remove(d));
     }
 }
-

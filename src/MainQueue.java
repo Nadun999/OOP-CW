@@ -1,7 +1,7 @@
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
-public class MainQueue extends Queue{
+public class MainQueue extends Queue implements Runnable{
     private  int queueLength;
     // getters and setters
     public int getQueueLength() {
@@ -12,8 +12,53 @@ public class MainQueue extends Queue{
         this.queueLength = queueLength;
     }
 
-    public MainQueue() {
-        // constructor
+    public MainQueue() throws ClassNotFoundException, SQLException {
+
+    }
+
+    public void run() {
+        for (int i = 0; i<=1000; i++){
+            // creating database connection
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            Connection conn = null;
+            try {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            Statement stmt= null;
+            try {
+                stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            ResultSet rs = null;
+            try {
+                rs = stmt.executeQuery("SELECT * FROM customer");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                rs.absolute(2);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                rs.deleteRow();
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public void checkTicket(){
@@ -21,31 +66,6 @@ public class MainQueue extends Queue{
     }
 
     public static void checkVehicle() throws SQLException, ClassNotFoundException {
-        MainQueue length = new MainQueue();
-        int count = 0;
-        Queue eachCustomer = new Queue();
-        eachCustomer.addingCustomer();
-        String vehicleType = eachCustomer.getCustomerArrayList().get(0).getVehicleType();
-        if (vehicleType.equals("car")){
-            count += 1;
-            length.setQueueLength(count);
-        }
 
-        OctaneFuelDispenseManager oct = new OctaneFuelDispenseManager();
-        oct.fuelType();
-        oct.totalIncome();
-        oct.totalNumberOfVehiclesServed();
-        oct.remainningStock();
-        oct.vehiclesThatReceivedTheLargestAmountOfFuel();
-        DieselFuelDispenseManager diesel = new DieselFuelDispenseManager();
-        diesel.fuelType();
-        diesel.totalIncome();
-        diesel.remainningStock();
-        diesel.totalFuelDispensedPerVehicle();
-        diesel.vehiclesThatReceivedTheLargestAmountOfFuel();
-    }
-
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        checkVehicle();
     }
 }

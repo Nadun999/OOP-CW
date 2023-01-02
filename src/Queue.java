@@ -41,16 +41,16 @@ public class Queue{
         // creating database connection
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
-        Statement stmt=conn.createStatement();
-        Statement stmt2=conn.createStatement();
-        Statement stmt3 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        Statement statement=conn.createStatement();
+        Statement statement2=conn.createStatement();
+        Statement statement3 = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
         String query = " insert into customer (v_type,f_type,qr_no, f_amount,payment_method,amount,t_id,c_id,date_time,remaining_repos,remaining_diesel_repos,diesel_amount)"+ " values (?, ?, ?, ?, ?,?,?,?,?,?,?,?)";
-        PreparedStatement psmt = conn.prepareStatement(query);
+        PreparedStatement ps = conn.prepareStatement(query);
 
         int remainingStock = 0;
         int remainingStockD = 0;
 
-        ResultSet rs0 = stmt3.executeQuery("SELECT * FROM customer");
+        ResultSet rs0 = statement3.executeQuery("SELECT * FROM customer");
         rs0.absolute(-1);
         // Get data at cursor
         int currentId = rs0.getInt("c_id");
@@ -71,7 +71,7 @@ public class Queue{
         while (choice.equals("yes")){
 
             String mvmt = "SELECT remaining_repos FROM customer";
-            ResultSet rs = stmt.executeQuery(mvmt);
+            ResultSet rs = statement.executeQuery(mvmt);
             while (rs.next()) {
                 if (rs.isLast()){
                     remainingStock = rs.getInt("remaining_repos");
@@ -80,7 +80,7 @@ public class Queue{
             }
 
             String mvmt2 = "SELECT remaining_diesel_repos FROM customer";
-            ResultSet rs2 = stmt2.executeQuery(mvmt2);
+            ResultSet rs2 = statement2.executeQuery(mvmt2);
             while (rs2.next()) {
                 if (rs2.isLast()){
                     remainingStockD = rs2.getInt("remaining_diesel_repos");
@@ -145,31 +145,31 @@ public class Queue{
             }
 
             // updating customer table
-            psmt.setString(1,vehicleType);
-            psmt.setString(2,fuelType);
-            psmt.setInt(3,qrType);
+            ps.setString(1,vehicleType);
+            ps.setString(2,fuelType);
+            ps.setInt(3,qrType);
             if (fuelType.equals("petrol")){
-                psmt.setInt(4,fuelAmount);
-                psmt.setInt(12,0);
+                ps.setInt(4,fuelAmount);
+                ps.setInt(12,0);
             } else if (fuelType.equals("diesel")) {
-                psmt.setInt(4,0);
-                psmt.setInt(12,fuelAmount);
+                ps.setInt(4,0);
+                ps.setInt(12,fuelAmount);
             }
-            psmt.setString(5,payMethod);
-            psmt.setInt(6,totalPrice);
-            psmt.setInt(7,count);
-            psmt.setInt(8,count);
-            psmt.setString(9,"05/08/2022");
+            ps.setString(5,payMethod);
+            ps.setInt(6,totalPrice);
+            ps.setInt(7,count);
+            ps.setInt(8,count);
+            ps.setString(9,"05/08/2022");
             if (fuelType.equals("petrol")){
-                psmt.setInt(10, remainingStock - fuelAmount);
-                psmt.setInt(11, remainingStockD);
+                ps.setInt(10, remainingStock - fuelAmount);
+                ps.setInt(11, remainingStockD);
             } else if (fuelType.equals("diesel")) {
-                psmt.setInt(11, remainingStockD - fuelAmount);
-                psmt.setInt(10, remainingStock);
+                ps.setInt(11, remainingStockD - fuelAmount);
+                ps.setInt(10, remainingStock);
             }
 
 
-            psmt.executeUpdate();
+            ps.executeUpdate();
 
             while (rs.next()) {
                 if (rs.isLast()){
@@ -194,18 +194,15 @@ public class Queue{
             choice = scn2.nextLine();
         }
 
-        stmt.close();
-        stmt2.close();
+        statement.close();
+        statement2.close();
         conn.close();
 
         // adding new customer to customer array list
         customerArrayList.add(newCustomer);
-//        System.out.println("first vehicle on queue : " + customerArrayList.get(0).getVehicleType());
 
         // decreasing ticket count by one
         tickets.setTicketCount(tickets.getTicketCount() - 1);
-//        System.out.println("tickets left : " + tickets.getTicketCount());
-//        System.out.println("remaining fuel count : " + repositoryDetails.getRemainingStock());
         count += 1;
     }
 }

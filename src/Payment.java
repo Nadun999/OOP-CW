@@ -27,8 +27,8 @@ public class Payment {
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
         Statement stmt=conn.createStatement();
 
-        String mvmt = "SELECT amount FROM customer WHERE f_type = 'petrol'";
-        ResultSet rs = stmt.executeQuery(mvmt);
+        String test = "SELECT amount FROM customer WHERE f_type = 'petrol'";
+        ResultSet rs = stmt.executeQuery(test);
         while (rs.next()) {
             totalPayment = totalPayment + rs.getInt("amount");
         }
@@ -36,16 +36,16 @@ public class Payment {
     }
 
     public void paymentForDiesel() throws ClassNotFoundException, SQLException {
-        double totalPayment = 0;
+        double totalamount = 0;
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
-        Statement stmt=conn.createStatement();
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Customer","root", "Nadun@123");
+        Statement stmt=connection.createStatement();
 
-        String mvmt = "SELECT amount FROM customer WHERE f_type = 'diesel'";
-        ResultSet rs = stmt.executeQuery(mvmt);
-        while (rs.next()) {
-            totalPayment = totalPayment + rs.getInt("amount");
+        String test = "SELECT amount FROM customer WHERE f_type = 'diesel'";
+        ResultSet resultSet = stmt.executeQuery(test);
+        while (resultSet.next()) {
+            totalamount = totalamount + resultSet.getInt("amount");
         }
-        System.out.println("total payment in diesel repositories : " + totalPayment);
+        System.out.println("total payment in diesel repositories : " + totalamount);
     }
 }

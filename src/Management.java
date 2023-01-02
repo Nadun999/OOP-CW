@@ -17,10 +17,11 @@ public class Management {
     }
 
     public void refillRepo(){
-        Repository repositoryDetails = new Repository();
-        double stock = repositoryDetails.getRemainingStock();
+        Repository repodetails = new Repository();
+        double stock = repodetails.getRemainingStock();
         if (stock < 500){
             // refill stock
+
         } else if (stock > 500) {
             // continue
         }
@@ -28,9 +29,9 @@ public class Management {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-//        Runnable obj1 = (Runnable) new MainQueue();
-//        Thread t1 = new Thread(obj1);
-//        t1.start();
+        Runnable obj1 = (Runnable) new MainQueue();
+        Thread t1 = new Thread(obj1);
+        t1.start();
 
         Queue eachCustomer = new Queue();
         eachCustomer.addingCustomer();

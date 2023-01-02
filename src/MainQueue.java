@@ -37,21 +37,22 @@ public class MainQueue extends Queue implements Runnable{
                 throw new RuntimeException(e);
             }
 
-            ResultSet rs = null;
+            ResultSet resultset = null;
             try {
-                rs = stmt.executeQuery("SELECT * FROM customer");
+                resultset = stmt.executeQuery("SELECT * FROM customer");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
             try {
-                rs.absolute(2);
+                resultset.absolute(2);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
+
             }
             try {
-                rs.deleteRow();
+                resultset.deleteRow();
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(12000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }

@@ -48,6 +48,5 @@ public class Management {
         diesel.remainningStock();
         diesel.totalFuelDispensedPerVehicle();
         diesel.vehiclesThatReceivedTheLargestAmountOfFuel();
-
     }
 }
